@@ -44,6 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _message = message.body ?? "Error reading message body.";
       print('date' + message.date.toString());
+      SmsService.forward(_message);
     });
   }
 
