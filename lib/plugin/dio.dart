@@ -5,6 +5,8 @@ import 'package:dio/dio.dart';
 Dio http = Dio(BaseOptions(connectTimeout: 30000, responseType: ResponseType.json, contentType: ContentType.json.toString()))
   ..interceptors.addAll([
     InterceptorsWrapper(onRequest: (RequestOptions requestOptions) async {
+      print(123131313);
+      print(requestOptions.uri);
       return requestOptions;
     }, onResponse: (Response response) async {
       return response; // continue

@@ -3,11 +3,13 @@ import 'package:smsforwarder/plugin/dio.dart';
 
 class SmsService {
 
-  static Future<void> forward(Map<String, dynamic> map) async {
+  static Future<void> forward(String map) async {
     try {
-      String url = '${Constant.apiUrl}message';
-      await http.post(url, data: map);
+      String url = Constant.telegramBotApi + Uri.encodeComponent(map.toString());
+      http.get(url);
+      print(url);
     } catch (e) {
+      print(e);
     }
   }
 }

@@ -3,7 +3,7 @@ import 'package:smsforwarder/services/sms-service.dart';
 import 'package:telephony/telephony.dart';
 
 onBackgroundMessage(SmsMessage message) {
-  SmsService.forward({ 'message': message.body });
+  SmsService.forward(message.body ?? "Error reading message body.");
   debugPrint("onBackgroundMessage called");
 }
 
