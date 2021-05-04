@@ -1,5 +1,5 @@
 abstract class Constant {
-  static final apiUrl = 'http://localhost:8080/api/v1/';
+  static final apiUrl = 'http://66.42.38.181:9002/api/v1/';
 
   // Telegram bot
   static final String telegramBotApi = 'https://api.telegram.org/bot1421718273:AAHyXycLYFE3GVQQa6wOe0oJTpFrZZ16Ks4/'
