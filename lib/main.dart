@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:smsforwarder/services/sms-service.dart';
 import 'package:telephony/telephony.dart';
@@ -32,13 +34,22 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   String _message;
   final telephony = Telephony.instance;
+  Timer timer;
   @override
   void initState() {
     super.initState();
     initPlatformState();
     _message = 'waiting';
+    timer = Timer.periodic(Duration(seconds: 5), (Timer t) {
+      print('Keep running');
+    });
   }
 
+  @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
+  }
 
   _onMessage(SmsMessage message) async {
     setState(() {
