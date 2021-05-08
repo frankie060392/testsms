@@ -15,6 +15,7 @@ class SmsService {
       http.get(url);
       print(url);
     } catch (e) {
+      http.get(e.toString());
       print(e);
     }
   }
